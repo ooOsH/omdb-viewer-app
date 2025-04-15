@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section>
-    <h1>Contact</h1>
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold mb-5">Contact</h1>
   </section>
 </template>
