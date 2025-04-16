@@ -8,9 +8,10 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss'],
-
-  imports: {
-    dirs: ['store'],
-  },
+  modules: [
+    '@nuxt/eslint',
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
+  ],
 })

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
+const store = useRecentlyViewedStore()
 const { getItem } = useOMDB()
 
 const series = ref({})
@@ -8,6 +9,7 @@ onMounted(async () => {
   const id = route.params.id as string
   const seriesResult = await getItem(id)
   series.value = seriesResult ?? {}
+  if (series.value) store.setRecentlyViewed(series.value)
 })
 </script>
 
