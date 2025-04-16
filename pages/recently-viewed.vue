@@ -19,7 +19,9 @@ onMounted(async () => {
       class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10"
     >
       <div v-for="item in viewed" :key="item.imdbID" class="md:hover:scale-105">
-        <NuxtLink :to="`/${item?.Type}/${item?.imdbID}`">
+        <NuxtLink
+          :to="`/${item?.Type === 'movie' ? 'movies' : item?.Type}/${item?.imdbID}`"
+        >
           <img
             :src="
               item?.Poster !== 'N/A'
