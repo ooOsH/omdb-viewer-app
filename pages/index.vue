@@ -5,6 +5,7 @@ const movies = ref([])
 const series = ref([])
 
 onMounted(async () => {
+  // Add some random results on load
   const movieResults = await search('easter', 'movie', '2024', 1)
   const seriesResults = await search('summer', 'series', '2024', 1)
   movies.value = movieResults ?? []
