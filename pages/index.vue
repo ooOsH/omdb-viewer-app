@@ -17,8 +17,38 @@ onMounted(async () => {
   <section class="container mx-auto px-4 sm:px-6 lg:px-8">
     <h1 class="text-3xl font-bold mb-5">OMDB Viewer</h1>
     <h2 class="text-3xl font-bold mb-5">Featured Movies</h2>
-    {{ movies }}
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+      <div v-for="item in movies" :key="item.imdbID" class="md:hover:scale-105">
+        <NuxtLink :to="`/movies/${item?.imdbID}`">
+          <img
+            :src="
+              item?.Poster !== 'N/A'
+                ? item?.Poster
+                : 'https://picsum.photos/300/450'
+            "
+            :alt="item?.Title"
+            class="w-full h-auto rounded"
+          />
+          <h3>{{ item?.Title }}</h3>
+        </NuxtLink>
+      </div>
+    </div>
     <h2 class="text-3xl font-bold mb-5">Featured Series</h2>
-    {{ series }}
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+      <div v-for="item in series" :key="item.imdbID" class="md:hover:scale-105">
+        <NuxtLink :to="`/series/${item?.imdbID}`">
+          <img
+            :src="
+              item?.Poster !== 'N/A'
+                ? item?.Poster
+                : 'https://picsum.photos/300/450'
+            "
+            :alt="item?.Title"
+            class="w-full h-auto rounded"
+          />
+          <h3>{{ item?.Title }}</h3>
+        </NuxtLink>
+      </div>
+    </div>
   </section>
 </template>

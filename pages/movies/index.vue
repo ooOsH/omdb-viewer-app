@@ -39,13 +39,29 @@ watch(query, async (newSearch) => {
     <input
       v-model="query"
       type="text"
-      placeholder="Search movies..."
+      placeholder="Search Movies..."
       class="shadow appearance-none border border-slate-400 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
     />
     <div v-if="displayErrorMessage" class="text-lg text-red-500">test</div>
     <div v-if="showLoading" class="text-lg text-gray-500">Loading...</div>
-    <div v-if="movies.length">
-      {{ movies }}
+    <div
+      v-if="movies.length"
+      class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10"
+    >
+      <div v-for="item in movies" :key="item.imdbID" class="md:hover:scale-105">
+        <NuxtLink :to="`/movies/${item?.imdbID}`">
+          <img
+            :src="
+              item?.Poster !== 'N/A'
+                ? item?.Poster
+                : 'https://picsum.photos/300/450'
+            "
+            :alt="item?.Title"
+            class="w-full h-auto rounded"
+          />
+          <h3>{{ item?.Title }}</h3>
+        </NuxtLink>
+      </div>
     </div>
   </section>
 </template>
