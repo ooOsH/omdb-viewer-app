@@ -32,6 +32,10 @@ watch(query, async (newSearch) => {
     showLoading.value = false
   }
 })
+
+useHead({
+  title: 'Moviews - OMDB Viewer App',
+})
 </script>
 
 <template>

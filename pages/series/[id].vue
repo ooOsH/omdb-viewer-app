@@ -11,6 +11,10 @@ onMounted(async () => {
   const seriesResult = await getItem(id)
   series.value = seriesResult ?? null
   if (series.value) store.setRecentlyViewed(series.value)
+
+  useHead({
+    title: `${series.value?.Title} - OMDB Viewer App`,
+  })
 })
 </script>
 

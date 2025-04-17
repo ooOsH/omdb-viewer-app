@@ -9,6 +9,10 @@ onMounted(async () => {
   viewed.value = store.data
   showLoading.value = false
 })
+
+useHead({
+  title: 'Recently Viewed - OMDB Viewer App',
+})
 </script>
 
 <template>

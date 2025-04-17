@@ -47,6 +47,10 @@ const onSubmit = () => {
     contactForm.message = ''
   }
 }
+
+useHead({
+  title: 'Contact - OMDB Viewer App',
+})
 </script>
 
 <template>
