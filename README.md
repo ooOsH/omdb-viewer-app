@@ -1,75 +1,38 @@
-# Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# OMDB Viewer App
+
+OMDB Viewer is a Nuxt app built with Tailwind to search and view movies/series from the OMDB API
+
+## Project Plan
+With most projects I usually sketch out some wireframes for the intended UI/UX (if not designed already), I will write down the functionality I will need to build it - like API connections and composables, list modules/packages I will need. See below...
 
 ## Setup
 
-Make sure to install dependencies:
+### Install the dependencies
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
+```
+I personally use pnpm due to its speed and efficiency but any other package manager could be used just delete the lock file
 
-# yarn
-yarn install
-
-# bun
-bun install
+### Run the app
+Rename the env file to get the API key
+```bash
+sample.env to .env
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+### Development Server
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+pnpm dev -o
 ```
 
-## Production
-
-Build the application for production:
-
+### Production
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
-
+### Preview Production locally
 ```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
