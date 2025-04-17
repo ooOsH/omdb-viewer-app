@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import type { Item } from '~/types/omdb'
 const route = useRoute()
 const store = useRecentlyViewedStore()
 const { getItem } = useOMDB()
 
-const movie = ref({})
+const movie = ref<Item | null>(null)
 
 onMounted(async () => {
   const id = route.params.id as string
   const movieResult = await getItem(id)
-  movie.value = movieResult ?? {}
+  movie.value = movieResult ?? null
   if (movie.value) store.setRecentlyViewed(movie.value)
 })
 </script>
@@ -26,17 +27,15 @@ onMounted(async () => {
           :alt="movie?.Title"
           class="w-full md:w-1/3 rounded mr-5"
         />
-        <div>
+        <div class="space-y-2">
           <h1 class="text-3xl font-bold mb-2">{{ movie?.Title }}</h1>
           <p v-if="movie?.Year || movie?.Genre" class="text-lg mb-2">
             {{ movie?.Year }} {{ movie?.Genre }}
           </p>
-          <p class="mb-2">{{ movie?.Plot }}</p>
-          <p class="mb-2"><strong>Director:</strong> {{ movie?.Director }}</p>
-          <p class="mb-2"><strong>Cast:</strong> {{ movie?.Actors }}</p>
-          <p class="mb-2">
-            <strong>IMDb Rating:</strong> {{ movie?.imdbRating }}
-          </p>
+          <p>{{ movie?.Plot }}</p>
+          <p><strong>Director:</strong> {{ movie?.Director }}</p>
+          <p><strong>Cast:</strong> {{ movie?.Actors }}</p>
+          <p><strong>IMDb Rating:</strong> {{ movie?.imdbRating }}</p>
         </div>
       </div>
     </div>

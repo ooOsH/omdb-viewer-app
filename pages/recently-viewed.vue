@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { Item } from '~/types/omdb'
 const store = useRecentlyViewedStore()
 
-const viewed = ref([])
+const viewed = ref<Item[]>([])
 const showLoading = ref(true)
 
 onMounted(async () => {

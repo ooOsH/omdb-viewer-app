@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { Item } from '~/types/omdb'
+
 const { search } = useOMDB()
 
-const movies = ref([])
-const series = ref([])
+const movies = ref<Item[]>([])
+const series = ref<Item[]>([])
 
 onMounted(async () => {
   // Add some random results on load

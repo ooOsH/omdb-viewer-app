@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import type { Item } from '~/types/omdb'
 const { search } = useOMDB()
 
 const rawQuery = ref('')
 const query = useDebouncedRef(rawQuery.value, 300)
-const series = ref([])
+const series = ref<Item[]>([])
 const showLoading = ref(false)
 const displayErrorMessage = ref('')
 
